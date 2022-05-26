@@ -1,0 +1,16 @@
+$ node -v
+v16.15.0
+
+$ npm -v                                                                                                             
+8.11.0
+
+$ npx -v
+8.11.0
+
+・プロジェクト作成
+$ npx create-next-app@latest corporate-website-microcms --ts
+
+・既存プロジェクトをリポジトリ登録
+$ git remote add origin git@github.com:hiropppp/corporate-website-microcms.git
+$ git branch -M main
+$ git push -u origin main
