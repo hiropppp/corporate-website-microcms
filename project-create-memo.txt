@@ -1,3 +1,6 @@
+★参考★
+https://qiita.com/kazama1209/items/e3934e304b4ccf0563dc
+
 $ node -v
 v16.15.0
 
