@@ -26,7 +26,7 @@ const SocialMedia = ({ color }: SocialMediaProps) => {
     const classes = useStyles()
 
     return (
-        <Grid item container spacing={2} justify="center">
+        <Grid item container spacing={2} style={{ justifyContent: "center" }}>
             <Grid
                 item
                 component={"a"}

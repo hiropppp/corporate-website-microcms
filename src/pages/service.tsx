@@ -40,7 +40,7 @@ const Service: React.FC = () => {
                 <PageTemplate title="Service | Corporate Site Sample">
                     <>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container justify="center">
+                            <Grid container style={{ justifyContent: "center" }}>
                                 <Grid item>
                                     <Typography variant="h1" gutterBottom>
                                         Service

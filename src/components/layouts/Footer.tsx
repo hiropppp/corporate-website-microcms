@@ -40,7 +40,7 @@ const Footer = () => {
     return (
         <div className={classes.footer}>
             <Container maxWidth="lg">
-                <Grid container spacing={3} justify="center">
+                <Grid container spacing={3} style={{ justifyContent: "center" }}>
                     {path.map(({ name, link }) => (
                         <Grid item key={link}>
                             <Link href={link}>
