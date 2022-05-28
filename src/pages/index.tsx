@@ -1,10 +1,15 @@
+import { GetStaticProps, NextPage } from "next"
+
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles"
-import { Container, Grid } from "@material-ui/core"
+import { Container, Grid, Typography } from "@material-ui/core"
 
 import Slider from "../components/home/Slider"
 import Introductions from "../components/home/Introductions"
+import Posts from "../components/blog/Posts"
 import PageTemplate from "../components/layouts/PageTemplate"
 import theme from "../components/utils/theme"
+
+import { fetchLatestPosts } from "../lib/api"
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -25,7 +30,25 @@ interface Introduction {
     href: string
 }
 
-const Home: React.FC = () => {
+interface Post {
+    id: string
+    title: string
+    subTitle: string
+    thumbnail: {
+        url: string
+    }
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    const latestPosts = await fetchLatestPosts(3) // トップページは最新の3件取得
+
+    return {
+        props: { latestPosts },
+        revalidate: 1
+    }
+}
+
+const Home = ({ latestPosts }) => {
     const classes = useStyles()
 
     const items: Item[] = [
@@ -72,12 +95,9 @@ const Home: React.FC = () => {
             <ThemeProvider theme={theme}>
                 <PageTemplate title="Home | Corporate Site Sample">
                     <>
-                        <Slider
-                            items={items}
-                        />
                         {introductions.map((introduction, index) => (
                             <Container key={index} maxWidth="lg" className={classes.container}>
-                                <Grid container style={{ justifyContent: index % 2 == 0 ? "flex-start" : "flex-end" }}>
+                                <Grid container justify={index % 2 == 0 ? "flex-start" : "flex-end"}>
                                     <Grid item lg={6} md={6}>
                                         <Introductions
                                             index={index}
@@ -91,6 +111,25 @@ const Home: React.FC = () => {
                             </Container>
                         ))
                         }
+                        <Container maxWidth="lg" className={classes.container}>
+                            <Typography variant="h1" align="center" style={{ marginBottom: "2rem" }}>
+                                Topics
+                            </Typography>
+                            <Grid container spacing={4}>
+                                {latestPosts?.map((post: Post) => (
+                                    <Grid item key={post.id} xs={12} sm={6} md={4}>
+                                        <Grid container>
+                                            <Posts
+                                                id={post.id}
+                                                title={post.title}
+                                                subTitle={post.subTitle}
+                                                thumbnail={post.thumbnail.url}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Container>
                     </>
                 </PageTemplate>
             </ThemeProvider>
