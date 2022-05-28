@@ -10,6 +10,9 @@ $ npm -v
 $ npx -v
 8.11.0
 
+$ yarn -v
+1.22.18
+
 ・プロジェクト作成
 $ npx create-next-app@latest corporate-website-microcms --ts
 
@@ -17,3 +20,23 @@ $ npx create-next-app@latest corporate-website-microcms --ts
 $ git remote add origin git@github.com:hiropppp/corporate-website-microcms.git
 $ git branch -M main
 $ git push -u origin main
+
+・フォルダ構成等変更（provisioning.shを作成）
+$ sh provisioning.sh
+
+・Material UIを導入
+$ yarn add @material-ui/core @material-ui/icons @material-ui/lab  --network-timeout 600000
+
+・その他ライブラリをインストール
+$ yarn add lightbox-react moment react-items-carousel react-material-ui-carousel react-scroll-to-top react-share  --network-timeout 600000
+    lightbox-react
+        画像クリックで拡大機能が作れる
+    moment
+        日付データの操作を簡単にしてくれる
+    react-items-carousel
+        カルーセル （スライダー）が作れる
+    react-material-ui-carousel
+        同上
+    react-scroll-to-top -スムーススクロールが作れる
+    react-share
+        SNSシェアボタンが作れる
