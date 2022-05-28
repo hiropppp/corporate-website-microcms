@@ -90,7 +90,8 @@ const Header = () => {
                                 style={{
                                     color: "inherit",
                                     fontWeight: router.pathname.match(link) ? "bold" : "normal",
-                                    borderBottom: router.pathname.match(link) && "1px solid #757ce8",
+                                    borderBottom: router.pathname.match(link) ? "1px solid #757ce8" : ""
+                                    //borderBottom: router.pathname.match(link) && "1px solid #757ce8"
                                 }}
                             >
                                 {name}
