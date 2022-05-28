@@ -77,7 +77,7 @@ const Home: React.FC = () => {
                         />
                         {introductions.map((introduction, index) => (
                             <Container key={index} maxWidth="lg" className={classes.container}>
-                                <Grid container justify={index % 2 == 0 ? "flex-start" : "flex-end"}>
+                                <Grid container style={{ justifyContent: index % 2 == 0 ? "flex-start" : "flex-end" }}>
                                     <Grid item lg={6} md={6}>
                                         <Introductions
                                             index={index}
