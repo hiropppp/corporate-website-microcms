@@ -18,7 +18,9 @@ const params = (method: string, data?: {}) => {
             "method": method,
             "headers": {
                 "Content-Type": "application/json; charset=utf-8",
-                "X-WRITE-API-KEY": writeApiKey
+                "X-WRITE-API-KEY": writeApiKey,
+                "X-MICROCMS-API-KEY": '' //コンパイルエラーとなるためGETとPOSTのheaders,bodyを統一している（空文字指定）　
+                //たぶん戻り値が同じ型にしないといけないぽい　そうなるとGETとPOSTそれぞれのメソッドを利用したほうがよさそう？
             },
             "body": JSON.stringify(data)
         }
@@ -26,8 +28,11 @@ const params = (method: string, data?: {}) => {
         return {
             "method": method,
             "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "X-WRITE-API-KEY": '',
                 "X-MICROCMS-API-KEY": apiKey
-            }
+            },
+            "body": ''
         }
     }
 }

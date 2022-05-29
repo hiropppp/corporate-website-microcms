@@ -121,7 +121,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const jobDetail = jobDetails[jobs.indexOf(String(params.job))]
+    const jobDetail = jobDetails[jobs.indexOf(String(params?.job))]
 
     return {
         props: { jobDetail },
@@ -129,7 +129,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
 }
 
-const RecruitJob = ({ jobDetail }) => {
+const RecruitJob = ({ jobDetail }: { jobDetail: JobDetail }) => {
     const classes = useStyles()
 
     return (
