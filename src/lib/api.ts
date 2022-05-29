@@ -6,11 +6,11 @@ interface Post {
     thumbnail: string
 }
 
-const serviceId: string = process.env.NEXT_PUBLIC_MICRO_CMS_SERVICE_ID
+const serviceId: string = process.env.NEXT_PUBLIC_MICRO_CMS_SERVICE_ID ?? 'default'
 const baseUrl: string = `https://${serviceId}.microcms.io/api/v1`
 
-const apiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY
-const writeApiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_WRITE_API_KEY
+const apiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY ?? 'default'
+const writeApiKey: string = "test"//process.env.NEXT_PUBLIC_MICRO_CMS_WRITE_API_KEY
 
 const params = (method: string, data?: {}) => {
     if (data) {
