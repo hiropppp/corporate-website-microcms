@@ -76,9 +76,13 @@ export const fetchLatestPosts = async (limit: number): Promise<Post[] | undefine
         .then(res => res.json())
         .catch(() => null)
 
-    if (data.contents) {
-        return data.contents
+
+    if (data) {
+        if (data.contents) {
+            return data.contents
+        }
     }
+
 }
 
 // お問い合わせを作成
