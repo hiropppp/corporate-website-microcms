@@ -64,6 +64,7 @@ interface Post {
 }
 
 const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentPageNumber: number, postsByPageNumber: Post[], allPosts: Post[] }) => {
+
     const classes = useStyles()
     const router = useRouter()
 
