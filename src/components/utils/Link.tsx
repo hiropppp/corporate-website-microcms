@@ -5,10 +5,10 @@ import NextLink, { LinkProps as NextLinkProps } from "next/link"
 import MuiLink, { LinkProps as MuiLinkProps } from "@material-ui/core/Link"
 
 interface NextLinkComposedProps
-    extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
+    extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">,
     Omit<NextLinkProps, 'href' | 'as' | 'onClick' | 'onMouseEnter'> {
-    to: NextLinkProps['href']
-    linkAs?: NextLinkProps['as']
+    to: NextLinkProps["href"]
+    linkAs?: NextLinkProps["as"]
     href?: NextLinkProps["href"]
 }
 

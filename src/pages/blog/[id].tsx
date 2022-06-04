@@ -10,7 +10,6 @@ import { fetchAllPosts, fetchPostById } from "../../lib/api"
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = await fetchAllPosts()
     const paths = posts!.map(({ id }) => `/blog/${id}`)
-    //const paths = posts.map(({ id }) => `/blog/${id}`)　「Type error: Object is possibly 'undefined'.」と出たので「!」を追記
 
     return {
         paths,
@@ -19,8 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const id: string = String(params?.id)
-    //const id: string = String(params.id)  「Type error: Object is possibly 'undefined'.」と出たので「?：を追記
+    const id: string = String(params!.id)
     const post = await fetchPostById(id)
 
     return {

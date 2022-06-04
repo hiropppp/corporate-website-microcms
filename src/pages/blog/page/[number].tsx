@@ -30,8 +30,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 
     const paths = range(1, Math.ceil(allPosts!.length / per_page)).map((number) => `/blog/page/${number}`)
-    //const paths = range(1, Math.ceil(allPosts.length / per_page)).map((number) => `/blog/page/${number}`)
-    //「Type error: Object is possibly 'undefined'.」が出たので「!」と追加
 
     return {
         paths,
@@ -40,8 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const currentPageNumber: number = Number(params?.number)
-    //const currentPageNumber: number = Number(params.number)　「Object is possibly 'undefined'」と出たので「?」を追加
+    const currentPageNumber: number = Number(params!.number)
     const limit: number = 6
 
     const postsByPageNumber = await fetchPostsByPageNumber(currentPageNumber, limit)
@@ -66,8 +63,8 @@ interface Post {
     }
 }
 
+const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentPageNumber: number, postsByPageNumber: Post[], allPosts: Post[] }) => {
 
-const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentPageNumber: number; postsByPageNumber: Post[]; allPosts: Post[] }) => {
     const classes = useStyles()
     const router = useRouter()
 

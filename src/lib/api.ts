@@ -6,11 +6,11 @@ interface Post {
     thumbnail: string
 }
 
-const serviceId: string = process.env.NEXT_PUBLIC_MICRO_CMS_SERVICE_ID ?? 'default'
+const serviceId: string = process.env.NEXT_PUBLIC_MICRO_CMS_SERVICE_ID ?? '';
 const baseUrl: string = `https://${serviceId}.microcms.io/api/v1`
 
-const apiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY ?? 'default'
-const writeApiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_WRITE_API_KEY ?? 'default'
+const apiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY ?? '';
+const writeApiKey: string = process.env.NEXT_PUBLIC_MICRO_CMS_WRITE_API_KEY ?? '';
 
 const params = (method: string, data?: {}) => {
     if (data) {
@@ -37,9 +37,31 @@ const params = (method: string, data?: {}) => {
     }
 }
 
+const paramsGet = (method: string) => {
+
+    return {
+        "method": method,
+        "headers": {
+            "X-MICROCMS-API-KEY": apiKey
+        }
+    }
+
+}
+
+const paramsPost = (method: string, data?: {}) => {
+    return {
+        "method": method,
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8",
+            "X-WRITE-API-KEY": writeApiKey
+        },
+        "body": JSON.stringify(data)
+    }
+}
+
 // 記事を全件取得
 export const fetchAllPosts = async (): Promise<Post[] | undefined> => {
-    const data = await fetch(`${baseUrl}/blog`, params("GET"))
+    const data = await fetch(`${baseUrl}/blog`, paramsGet("GET"))
         .then(res => res.json())
         .catch(() => null)
 
@@ -50,7 +72,7 @@ export const fetchAllPosts = async (): Promise<Post[] | undefined> => {
 
 // IDから個別の記事を取得
 export const fetchPostById = async (id: string): Promise<Post | undefined> => {
-    const data = await fetch(`${baseUrl}/blog/${id}`, params("GET"))
+    const data = await fetch(`${baseUrl}/blog/${id}`, paramsGet("GET"))
         .then(res => res.json())
         .catch(() => null)
 
@@ -61,7 +83,7 @@ export const fetchPostById = async (id: string): Promise<Post | undefined> => {
 
 // ページ番号によって記事を取得
 export const fetchPostsByPageNumber = async (pageNumber: number, limit: number): Promise<Post[] | undefined> => {
-    const data = await fetch(`${baseUrl}/blog?offset=${(pageNumber - 1) * 6}&limit=${limit}`, params("GET"))
+    const data = await fetch(`${baseUrl}/blog?offset=${(pageNumber - 1) * 6}&limit=${limit}`, paramsGet("GET"))
         .then(res => res.json())
         .catch(() => null)
 
@@ -72,7 +94,7 @@ export const fetchPostsByPageNumber = async (pageNumber: number, limit: number):
 
 // 最新の記事のみを取得
 export const fetchLatestPosts = async (limit: number): Promise<Post[] | undefined> => {
-    const data = await fetch(`${baseUrl}/blog?limit=${limit}`, params("GET"))
+    const data = await fetch(`${baseUrl}/blog?limit=${limit}`, paramsGet("GET"))
         .then(res => res.json())
         .catch(() => null)
 
@@ -87,5 +109,5 @@ export const fetchLatestPosts = async (limit: number): Promise<Post[] | undefine
 
 // お問い合わせを作成
 export const createContact = async (data: {}) => {
-    await fetch(`${baseUrl}/contacts`, params("POST", data))
+    await fetch(`${baseUrl}/contacts`, paramsPost("POST", data))
 }
