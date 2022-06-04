@@ -40,3 +40,28 @@ $ yarn add lightbox-react moment react-items-carousel react-material-ui-carousel
     react-scroll-to-top -スムーススクロールが作れる
     react-share
         SNSシェアボタンが作れる
+
+・Git操作
+・ブランチ作成
+$ git checkout -b feature-add-xx
+$ git checkout -b feature/#7justify
+
+・リモートにブランチ登録
+$ git push -u origin feature/#7justify
+
+・add
+
+・commit
+※Issueについて、close #12などとコミットメッセージに記述すると、自動的にIssueが閉じられる
+
+
+
+・push
+
+・build
+$ yarn run build
+
+・実行
+$ yarn dev
+
+

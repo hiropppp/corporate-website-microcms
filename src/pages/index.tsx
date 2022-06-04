@@ -97,7 +97,7 @@ const Home = ({ latestPosts }: { latestPosts: Post[] }) => {
                     <>
                         {introductions.map((introduction, index) => (
                             <Container key={index} maxWidth="lg" className={classes.container}>
-                                <Grid container justify={index % 2 == 0 ? "flex-start" : "flex-end"}>
+                                <Grid container style={index % 2 == 0 ? { justifyContent: "flex-start" } : { justifyContent: "flex-end" }}>
                                     <Grid item lg={6} md={6}>
                                         <Introductions
                                             index={index}
@@ -118,7 +118,7 @@ const Home = ({ latestPosts }: { latestPosts: Post[] }) => {
                             <Grid container spacing={4}>
                                 {latestPosts?.map((post: Post) => (
                                     <Grid item key={post.id} xs={12} sm={6} md={4}>
-                                        <Grid container>
+                                        <Grid container style={{ justifyContent: "center" }}>
                                             <Posts
                                                 id={post.id}
                                                 title={post.title}

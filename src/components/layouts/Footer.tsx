@@ -64,7 +64,7 @@ const Footer = () => {
                 <Grid
                     item
                     container
-                    justify="center"
+                    style={{ justifyContent: "center" }}
                 >
                     <Typography className={classes.copylight}>
                         &copy;{new Date().getFullYear()} Sample

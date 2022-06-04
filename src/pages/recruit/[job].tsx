@@ -137,7 +137,7 @@ const RecruitJob = ({ jobDetail }: { jobDetail: JobDetail }) => {
             <PageTemplate title="Recruit | Corporate Site Sample">
                 <>
                     <Container maxWidth="lg" className={classes.container}>
-                        <Grid container justify="center">
+                        <Grid container style={{ justifyContent: "center" }}>
                             <Grid item>
                                 <Typography variant="h1" gutterBottom>
                                     {jobDetail.name}
@@ -146,14 +146,14 @@ const RecruitJob = ({ jobDetail }: { jobDetail: JobDetail }) => {
                         </Grid>
                     </Container>
                     <Container maxWidth="lg" className={classes.container}>
-                        <Grid container justify="center">
+                        <Grid container style={{ justifyContent: "center" }}>
                             <Grid item className={classes.gridItem}>
                                 <img src={jobDetail.image} style={{ height: "auto", maxWidth: "100%" }} />
                             </Grid>
                         </Grid>
                     </Container>
                     <Container maxWidth="lg" className={classes.container}>
-                        <Grid container justify="center">
+                        <Grid container style={{ justifyContent: "center" }}>
                             <Grid item className={classes.gridItem}>
                                 <Typography variant="h2" gutterBottom>
                                     Description

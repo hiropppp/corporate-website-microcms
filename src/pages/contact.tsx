@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
                 <PageTemplate title="Contact | Sample">
                     <>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container justify="center">
+                            <Grid container style={{ justifyContent: "center" }}>
                                 <Grid item>
                                     <Typography variant="h1" gutterBottom>
                                         Contact

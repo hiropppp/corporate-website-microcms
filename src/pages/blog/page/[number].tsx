@@ -82,7 +82,7 @@ const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentP
                 <PageTemplate title="Blog | Corporate Site Sample">
                     <>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container justify="center">
+                            <Grid container style={{ justifyContent: "center" }}>
                                 <Grid item>
                                     <Typography variant="h1" gutterBottom>
                                         Blog
@@ -107,7 +107,7 @@ const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentP
                             </Grid>
                         </Container>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container justify="center">
+                            <Grid container style={{ justifyContent: "center" }}>
                                 <Grid item>
                                     <Pagination
                                         count={Math.ceil(allPosts.length / perPage)}

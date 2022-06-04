@@ -48,7 +48,7 @@ const Recruit: React.FC = () => {
                 <PageTemplate title="Recruit | Corporate Site Sample">
                     <>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container justify="center">
+                            <Grid container style={{ justifyContent: "center" }}>
                                 <Grid item>
                                     <Typography variant="h1" gutterBottom>
                                         Recruit
@@ -57,7 +57,7 @@ const Recruit: React.FC = () => {
                             </Grid>
                         </Container>
                         <Container maxWidth="lg" className={classes.container}>
-                            <Grid container spacing={2} justify="center">
+                            <Grid container spacing={2} style={{ justifyContent: "center" }}>
                                 <Grid container item xs={12} spacing={2}>
                                     <Jobs
                                         jobs={jobs}
