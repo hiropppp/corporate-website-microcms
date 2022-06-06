@@ -94,14 +94,14 @@ const BlogPage = ({ currentPageNumber, postsByPageNumber, allPosts }: { currentP
                             <Grid container spacing={4}>
                                 {postsByPageNumber?.map((post: Post) => (
                                     <Grid item key={post.id} xs={12} sm={6} md={4}>
-                                        <Grid container>
-                                            <Posts
-                                                id={post.id}
-                                                title={post.title}
-                                                subTitle={post.subTitle}
-                                                thumbnail={post.thumbnail.url}
-                                            />
-                                        </Grid>
+
+                                        <Posts
+                                            id={post.id}
+                                            title={post.title}
+                                            subTitle={post.subTitle}
+                                            thumbnail={post.thumbnail.url}
+                                        />
+
                                     </Grid>
                                 ))}
                             </Grid>

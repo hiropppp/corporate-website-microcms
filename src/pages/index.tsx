@@ -117,15 +117,15 @@ const Home = ({ latestPosts }: { latestPosts: Post[] }) => {
                             </Typography>
                             <Grid container spacing={4}>
                                 {latestPosts?.map((post: Post) => (
-                                    <Grid item key={post.id} xs={12} sm={6} md={4}>
-                                        <Grid container style={{ justifyContent: "center" }}>
-                                            <Posts
-                                                id={post.id}
-                                                title={post.title}
-                                                subTitle={post.subTitle}
-                                                thumbnail={post.thumbnail.url}
-                                            />
-                                        </Grid>
+                                    <Grid item key={post.id} xs={12} sm={6} md={4} >
+
+                                        <Posts
+                                            id={post.id}
+                                            title={post.title}
+                                            subTitle={post.subTitle}
+                                            thumbnail={post.thumbnail.url}
+                                        />
+
                                     </Grid>
                                 ))}
                             </Grid>
